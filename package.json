@@ -1,0 +1,53 @@
+{
+  "name": "b2b-next-boilerplate",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "npx jest -i --passWithNoTests",
+    "test:watch": "npm run test -- --watch",
+    "test:coverage": "npm run test -- --coverage",
+    "dev:config": "npm run set:config && npm i && npm run prepare:local",
+    "dev-env": "docker-compose --env-file .env.local up -d && docker exec -it next-app /bin/bash",
+    "sonarqube:build": "sudo docker run -d --name sonarqube -p 9000:9000 sonarqube",
+    "sonarqube:up": "sudo docker restart sonarqube",
+    "sonarqube:down": "sudo docker stop sonarqube",
+    "sonar-scanner": "sonar-scanner -Dsonar.login=$(grep SONARQUBE_TOKEN .env.local | cut -d '=' -f2)"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-google-recaptcha": "^2.1.0",
+    "react-input-mask": "^3.0.0-alpha.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/plugin-transform-runtime": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@faker-js/faker": "^7.2.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@types/jest": "^28.1.1",
+    "@types/node": "17.0.41",
+    "@types/react": "18.0.12",
+    "@types/react-dom": "18.0.5",
+    "@types/react-google-recaptcha": "^2.1.5",
+    "@types/react-input-mask": "^3.0.1",
+    "babel-loader": "^8.2.5",
+    "eslint": "8.17.0",
+    "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "git-commit-msg-linter": "^4.1.3",
+    "jest": "^28.1.1",
+    "jest-environment-jsdom": "^28.1.1",
+    "lint-staged": "^13.0.1",
+    "prettier": "2.6.2",
+    "typescript": "4.7.3",
+    "webpack": "^5.73.0"
+  }
+}

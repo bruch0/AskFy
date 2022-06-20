@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  app:
+    container_name: next-app
+    env_file:
+      - .env.local
+    image: node:16
+    user: "node:node"
+    working_dir: /usr/src/askfy
+    ports:
+      - "3001:3000"
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+    volumes:
+      - .:/usr/src/askfy
+    extra_hosts:
+      - "host.docker.internal:172.17.0.1"
